@@ -118,7 +118,7 @@ public final class demo {
     public static void main(String[] args) {
         try {
 
-            final File credFile = new File("/Users/rahimulhaq/eclipse-workspace/azureDemo/src/main/java/azureForDemo/azureDemo/auth");
+            final File credFile = new File(System.getProperty("user.dir") + "/src/main/java/azureForDemo/azureDemo/auth");
         	
             azure = Azure.configure()
                     .withLogLevel(LogLevel.NONE)
@@ -140,7 +140,7 @@ public final class demo {
     }
     static Azure azure;
 public static void createVM() {
-	System.out.println("Creating a Linux VM");
+	System.out.println("Start Creating a VM");
 	
 	System.out.println("Creating resource group...");
 	ResourceGroup resourceGroup = azure.resourceGroups()
