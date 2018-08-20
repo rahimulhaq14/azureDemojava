@@ -1,36 +1,19 @@
 package azureForDemo.azureDemo;
 
-import com.microsoft.azure.AzureEnvironment;
-import com.microsoft.azure.PagedList;
-import com.microsoft.azure.credentials.UserTokenCredentials;
 import com.microsoft.azure.management.Azure;
 import com.microsoft.azure.management.compute.AvailabilitySet;
 import com.microsoft.azure.management.compute.AvailabilitySetSkuTypes;
-import com.microsoft.azure.management.compute.ComputeResourceType;
-import com.microsoft.azure.management.compute.ComputeSku;
-import com.microsoft.azure.management.compute.DiskInstanceView;
-import com.microsoft.azure.management.compute.InstanceViewStatus;
-import com.microsoft.azure.management.compute.KnownLinuxVirtualMachineImage;
-import com.microsoft.azure.management.compute.VirtualMachine;
 import com.microsoft.azure.management.compute.VirtualMachineSizeTypes;
-import com.microsoft.azure.management.cosmosdb.CosmosDBAccount;
-import com.microsoft.azure.management.cosmosdb.DatabaseAccountKind;
 import com.microsoft.azure.management.network.Network;
 import com.microsoft.azure.management.network.NetworkInterface;
 import com.microsoft.azure.management.network.PublicIPAddress;
 import com.microsoft.azure.management.resources.ResourceGroup;
-import com.microsoft.azure.management.resources.fluentcore.arm.AvailabilityZoneId;
 import com.microsoft.azure.management.resources.fluentcore.arm.Region;
 import com.microsoft.azure.management.resources.fluentcore.model.Indexable;
 import com.microsoft.azure.management.resources.fluentcore.utils.SdkContext;
 import com.microsoft.rest.LogLevel;
 import rx.Observable;
-import rx.Subscription;
-import rx.schedulers.Schedulers;
-
 import java.io.File;
-import java.util.Map;
-import java.util.Set;
 
 
 public final class demo {
@@ -101,6 +84,7 @@ public final class demo {
             .withDynamicIP()
             .create();
         System.out.println("created ip address with id:" + publicIPAddress.id());
+        System.out.println("created ip address: " + publicIPAddress.ipAddress());
         return publicIPAddress;
     }
     public static Network createVirtualNetwork(Azure azure, String resourceGroup, String subnetName, String name) {
